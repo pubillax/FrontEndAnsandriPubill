@@ -1,0 +1,20 @@
+<table>
+    <tr>
+      <th>Titular</th>
+      <th>Saldo</th>
+      <th>Activa</th>
+      <th>Acciones</th>
+    </tr>
+    <tr *ngFor="let cuenta of cuentas">
+      <td>{{ cuenta.titular }}</td>
+      <td>{{ cuenta.saldo }}</td>
+      <td>{{ cuenta.activa ? 'Sí' : 'No' }}</td>
+      <td>
+        <button (click)="editar(cuenta)">Modificar</button>
+        <button (click)="eliminar(cuenta.id!)">Eliminar</button>
+      </td>
+    </tr>
+  </table>
+  
+  <app-cuenta-formulario [cuenta]="cuentaEditando" (refrescar)="cargarCuentas()"></app-cuenta-formulario>
+  

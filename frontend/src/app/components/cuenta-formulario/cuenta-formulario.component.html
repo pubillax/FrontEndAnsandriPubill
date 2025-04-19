@@ -1,0 +1,10 @@
+<form (ngSubmit)="guardar()">
+    <input [(ngModel)]="nuevaCuenta.titular" name="titular" placeholder="Titular" required />
+    <input [(ngModel)]="nuevaCuenta.saldo" name="saldo" type="number" placeholder="Saldo" required />
+    <label>
+      <input [(ngModel)]="nuevaCuenta.activa" name="activa" type="checkbox" />
+      Activa
+    </label>
+    <button type="submit">{{ nuevaCuenta.id ? 'Actualizar' : 'Crear' }}</button>
+  </form>
+  
