@@ -1,0 +1,42 @@
+<main class="main">
+  <table>
+    <thead>
+      <tr><td>Tabla</td></tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of datosBdd">
+      <td>
+        <h2 style="margin-bottom: 40px;">
+          {{ item.nombre }}, {{ item.saldo }}, {{ item.activo }}
+        </h2>
+      </td>
+      <td>
+        <button (click)="delete(item.id)">Borrar</button>
+      </td>
+      <td>
+        <form (submit)="modify(item.id)" >
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" [(ngModel)]="datosFormulario.nombre" name="nombre" required>
+          <label for="saldo">Saldo:</label>
+          <input type="number" id="saldo" [(ngModel)]="datosFormulario.saldo" name="saldo" required>
+          <label for="activo">Activo:</label>
+          <input type="checkbox" id="activo" [(ngModel)]="datosFormulario.activo" name="activo" required>
+          <button type="submit">Modificar</button>
+        </form>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+  
+  <form (submit)="enviarFormulario()" >
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="datosFormulario.nombre" name="nombre" required>
+    <label for="saldo">Saldo:</label>
+    <input type="number" id="saldo" [(ngModel)]="datosFormulario.saldo" name="saldo" required>
+    <label for="activo">Activo:</label>
+    <input type="checkbox" id="activo" [(ngModel)]="datosFormulario.activo" name="activo" required>
+    <button type="submit">Enviar</button>
+  </form>
+
+</main>
+<router-outlet><router-outlet/>
